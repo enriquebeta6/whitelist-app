@@ -1,0 +1,21 @@
+{
+  "menu.language": "Idioma",
+  "menu.language.portuguese": "Portugués",
+  "menu.language.spanish": "Español",
+  "menu.language.english": "Inglés",
+  "donations.title": "Donaciones",
+  "donations.current-donors": "Donadores actuales",
+  "donations.benefits.title": "Beneficios",
+  "donations.benefits.item-1": "Acceso anticipado a la preventa del TOKEN (TLC)",
+  "donations.benefits.item-2": "Acceso anticipado a la preventa de NFTs",
+  "donations.benefits.item-3": "Cupo en la Beta Privada (Modo Supervivencia PvE)",
+  "donations.benefits.item-4": "Aureola de Donador: Carta de habilidad NFT que aumenta las estadísticas de tu personaje y a su vez añade un accesorio estético. Solo existirán 2500 unidades y podrán ser comercializadas.",
+  "footer.copyright": "Toys Legend. Todos los derechos reservados.",
+  "donations.modal.success.title": "¡Gracias por tu donación!",
+  "donations.modal.success.text": "La donación se ha confirmado exitosamente, puedes verificar la transacción en el siguiente enlace",
+  "donations.modal.success.link": "Ver en BSCSCAM",
+  "donations.error.generic.title": "Algo salió mal",
+  "donations.error.generic.text": "Por favor, inténtalo de nuevo",
+  "donations.error.network": "Se ha detectado una red diferente a la Binance Smart Chain por favor verifica y vuelve a intentarlo",
+  "donations.error.account-whitelisted": "La cartera ya se encuentra en la whitelist"
+}

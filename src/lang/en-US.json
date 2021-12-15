@@ -1,0 +1,21 @@
+{
+  "menu.language": "Language",
+  "menu.language.portuguese": "Portuguese",
+  "menu.language.spanish": "Spanish",
+  "menu.language.english": "English",
+  "donations.title": "Donations",
+  "donations.current-donors": "Current donors",
+  "donations.benefits.title": "Benefits",
+  "donations.benefits.item-1": "Early access to TOKEN (TLC) pre-sale",
+  "donations.benefits.item-2": "Early access to the pre-sale of NFTs",
+  "donations.benefits.item-3": "Space in the Private Beta (PvE Survival Mode)",
+  "donations.benefits.item-4": "Donor's Halo: NFT skill card that increases your character's stats and adds an aesthetic accessory. Only 2500 units will be available and these could be traded.",
+  "footer.copyright": "Toys Legend. All Rights Reserved",
+  "donations.modal.success.title": "Thank you for your donation!",
+  "donations.modal.success.text": "The donation has been confirmed succesfully, you can check the transaction in the following link",
+  "donations.modal.success.link": "View on BSCSCAM",
+  "donations.error.generic.title": "Something went wrong",
+  "donations.error.generic.text": "Please try again",
+  "donations.error.network": "A different network than Binance Smart Chain has been detected, please verify and try again",
+  "donations.error.account-whitelisted": "This wallet is whitelisted"
+}

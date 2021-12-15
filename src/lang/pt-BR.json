@@ -1,0 +1,21 @@
+{
+  "menu.language": "Idioma",
+  "menu.language.portuguese": "Português",
+  "menu.language.spanish": "Espanhol",
+  "menu.language.english": "Inglês",
+  "donations.title": "Doações",
+  "donations.current-donors": "Doadores atuais",
+  "donations.benefits.title": "Beneficios",
+  "donations.benefits.item-1": "Acesso anticipado na pre-venda do TOKEN (TLC)",
+  "donations.benefits.item-2": "Acesso anticipado na pre-venda dos NFTs",
+  "donations.benefits.item-3": "Vaga na Beta Fechada (PvE modo de sobrevivência)",
+  "donations.benefits.item-4": "Halo de Doador: Carta de habilidade NFT que aumenta as estadisticas de teu personaje e ao mesmo tempo adiciona um acessório estético. Só existiram 2500 unidades e poderam ser comercializadas",
+  "footer.copyright": "Toys Legend. Todos os direitos reservados.",
+  "donations.modal.success.title": "Obrigado por sua doação!",
+  "donations.modal.success.text": "A doação foi confirmado com sucesso, você pode conferir a transação no seguinte link",
+  "donations.modal.success.link": "Ver no BSCSCAM",
+  "donations.error.generic.title": "Algo deu errado",
+  "donations.error.generic.text": "Por favor, tente novamente",
+  "donations.error.network": "Uma rede diferente da Binance Smart Chain foi detectada, verifique e tente novamente",
+  "donations.error.account-whitelisted": "A carteira já se encontra na whitelist"
+}
