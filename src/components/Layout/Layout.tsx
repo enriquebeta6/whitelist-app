@@ -3,7 +3,7 @@ import { PropsWithChildren } from "react"
 import { chakra } from "@chakra-ui/react"
 
 // Assets
-import bgPattern from './bg-pattern.png'
+import background from '../../assets/background.png'
 
 // Components
 import Header from "../Header/Header"
@@ -13,7 +13,8 @@ export default function Layout({ children }: PropsWithChildren<unknown>) {
   return (
     <chakra.div
       d="flex"
-      height="100%"
+      height="auto"
+      minHeight="100vh"
       flexDirection="column"
       bgGradient={{
         base: "linear-gradient(180deg, #0D80C2 0%, #0E0C5B 100%)",
@@ -28,18 +29,17 @@ export default function Layout({ children }: PropsWithChildren<unknown>) {
           opacity: 0.1,
           content: `""`,
           position: "absolute",
-          bg: `url(${bgPattern})`,
-          bgSize: {
-            base: "cover",
-            lg: "initial"
-          },
+          bg: `url(${background})`,
+          bgSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       />
 
       <chakra.div
         d="flex"
         zIndex={1}
-        height="100%"
+        minHeight="100vh"
         flexDirection="column"
         position="relative"
       >

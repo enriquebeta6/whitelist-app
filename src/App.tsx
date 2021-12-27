@@ -4,8 +4,9 @@ import Donations from "./pages/Donations/Donations";
 
 function App() {
   useEffect(() => {
-    //@ts-ignore
-    window.ethereum.on('chainChanged', () => window.location.reload());
+    if (window.ethereum) {
+      window.ethereum.on('chainChanged', () => window.location.reload());
+    }
   }, [])
 
   return (
