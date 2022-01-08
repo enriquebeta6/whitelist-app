@@ -11,6 +11,7 @@ export default function Card({ children }: PropsWithChildren<unknown>) {
         base: 4,
         lg: 6
       }}
+      h="100%"
     >
       {children}
     </chakra.article>

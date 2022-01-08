@@ -52,8 +52,6 @@
   },
   "devDependencies": {
     "@formatjs/ts-transformer": "^3.7.0",
-    "@metamask/providers": "^8.1.1",
-    "gh-pages": "^3.2.3",
-    "react-app-rewired": "^2.1.8"
+    "gh-pages": "^3.2.3"
   }
 }

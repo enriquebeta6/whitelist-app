@@ -3,51 +3,42 @@ import {
   Text,
   Button,
   Flex,
-  Image,
   chakra,
   Heading,
   ListItem,
   SimpleGrid,
   OrderedList,
-  useMediaQuery,
 } from '@chakra-ui/react'
 
 import { FormattedMessage } from 'react-intl'
 
-// Assets
-import character from '../../assets/character.png'
-
 // Hooks
 import { useDonations } from '../../hooks/useDonations'
+import { useWhitelist } from '../../hooks/useWhitelist'
 
 // Components
 import Card from '../../components/Card/Card';
-import Modal from '../../components/Modal/Modal';
 import Layout from '../../components/Layout/Layout';
-import ModalErrorContent from './ModalErrorContent/ModalErrorContent';
-import ModalStepsContent from './ModalStepsContent/ModalStepsContent';
-import ModalSuccessContent from './ModalSuccessContent/ModalSuccessContent';
 
-function Donations() {
-  const [isLowerThanLG] = useMediaQuery('(max-width: 62em)')
+function Whitelist() {
   const {
-    hashTax,
-    setHashTax,
-    status,
-    setStatus,
     isDonor,
-    stepMessageID,
-    errorMessageID,
     currentDonations,
     maxNumberOfDonators,
     checkIfIsDonator,
-    makeDonation
   } = useDonations();
+
+  const {
+    isWhitelisted,
+    checkIfIsWhiteListed
+  } = useWhitelist();
 
   return (
     <Layout>
       <chakra.main
         w="100%"
+        flexWrap="wrap"
+        rowGap={"1rem"}
         maxWidth="1440px"
         padding={{
           base: "0 16px",
@@ -56,9 +47,6 @@ function Donations() {
         d={{
           lg: "flex"
         }}
-        alignItems={{
-          lg: "center"
-        }}
         justifyContent={{
           lg: "space-around"
         }}
@@ -66,19 +54,21 @@ function Donations() {
           lg: "auto"
         }}
       >
-        {!isLowerThanLG && (
-          <Image src={character} maxWidth="580px" w="100%" />
-        )}
-
-        <chakra.div maxWidth={{
-          lg: '566px'
-        }}>
+        <chakra.div
+          mb={{
+            base: "1em",
+            lg: 0
+          }}
+          maxWidth={{
+            lg: '566px'
+          }}
+        >
           <Card>
             <SimpleGrid columns={1} spacing={4}>
               <Heading as='h1' fontSize="28px" color="#FFB544">
                 <FormattedMessage
-                  id="donations.title"
-                  defaultMessage="Donations"
+                  id="whitelist.title"
+                  defaultMessage="Whitelist"
                 />
               </Heading>
 
@@ -108,6 +98,119 @@ function Donations() {
                   <FormattedMessage
                     id="benefits.item-3"
                     defaultMessage="Space in the Private Beta (PvE Survival Mode)"
+                  />
+                </ListItem>
+              </OrderedList>
+
+              {maxNumberOfDonators > 0 && (
+                <>
+                  <Heading as='h2' fontSize="16px" color="#FFB544">
+                    <FormattedMessage
+                      id="whitelist.allocations"
+                      defaultMessage="Allocations"
+                    />
+                  </Heading>
+
+                  <Flex>
+                    <Text color="#FFB544" fontWeight="bold" mr={1}>
+                      300
+                    </Text>
+
+                    <Text color="#CFCFCF">
+                      <FormattedMessage
+                        id="whitelist.allocations.from-giveaways"
+                        defaultMessage="from giveaways"
+                      />
+                    </Text>
+                  </Flex>
+
+                  <Flex>
+                    <Text color="#FFB544" fontWeight="bold" mr={1}>
+                      2500
+                    </Text>
+
+                    <Text color="#CFCFCF">
+                      <FormattedMessage
+                        id="whitelist.allocations.from-donors"
+                        defaultMessage="from donors"
+                      />
+                    </Text>
+                  </Flex>
+                </>
+              )}
+              
+              <Flex
+                wrap={"wrap"}
+                rowGap={4}
+                direction={{
+                  base: 'column',
+                  lg: 'row'
+                }}
+              >                
+                {currentDonations >= 0 && isWhitelisted === null && (
+                  <Button 
+                    cursor="pointer"
+                    onClick={checkIfIsWhiteListed}
+                  >
+                    <FormattedMessage
+                      id="whitelist.button.check-if-is-whitelisted"
+                      defaultMessage="Check if you're whitelisted"
+                    />
+                  </Button>
+                )}
+              </Flex>
+
+              {isWhitelisted !== null && (
+                <Text color={isWhitelisted ? "green.500" : "yellow.500"} fontSize="20px" fontWeight="bold">
+                  {isWhitelisted && (
+                    <FormattedMessage
+                      id="whitelist.text.whitelisted"
+                      defaultMessage="Congratulations, you're whitelisted"
+                    />
+                  )}
+
+                  {!isWhitelisted && (
+                    <FormattedMessage
+                      id="whitelist.text.not-whitelisted"
+                      defaultMessage="Sorry, you are'nt whitelisted"
+                    />
+                  )}
+                </Text>
+              )}
+            </SimpleGrid>
+          </Card>
+        </chakra.div>
+
+        <chakra.div
+          mb={{
+            base: "1em",
+            lg: 0
+          }}
+          maxWidth={{
+            lg: '566px'
+          }}
+        >
+          <Card>
+            <SimpleGrid columns={1} spacing={4} h="100%">
+              <Heading as='h1' fontSize="28px" color="#FFB544">
+                <FormattedMessage
+                  id="donations.title"
+                  defaultMessage="Donations"
+                />
+              </Heading>
+
+              <Heading as='h2' fontSize="16px" color="#FFB544">
+                <FormattedMessage
+                  id="benefits.title"
+                  defaultMessage="Benefits"
+                />
+              </Heading>
+
+              <OrderedList>
+                <ListItem color="#CFCFCF" letterSpacing="0.01em" lineHeight="26px">
+                  <FormattedMessage
+                    id="benefits.all-whitelist-benefits"
+                    defaultMessage={`All whitelist benefits`}
                   />
                 </ListItem>
 
@@ -142,32 +245,8 @@ function Donations() {
                   base: 'column',
                   lg: 'row'
                 }}
-              >
-                {currentDonations !== maxNumberOfDonators && (
-                  <Button
-                    mr={4}
-                    w={{
-                      base: '100%',
-                      lg: 'auto'
-                    }}
-                    color="white"
-                    cursor="pointer"
-                    padding="0 24px"
-                    onClick={makeDonation}
-                    transition="all .3s ease-in-out"
-                    background="rgba(13, 128, 194, 0.6)"
-                    _hover={{
-                      background: "#0d80c2"
-                    }}
-                  >
-                    <FormattedMessage
-                      id="donations.button.donate"
-                      defaultMessage="Donate 25 BUSD"
-                    />
-                  </Button>
-                )}
-                
-                {currentDonations > 0 && isDonor === null && (
+              >                
+                {currentDonations >= 0 && isDonor === null && (
                   <Button 
                     cursor="pointer"
                     onClick={checkIfIsDonator}
@@ -180,15 +259,6 @@ function Donations() {
                 )}
               </Flex>
 
-              {maxNumberOfDonators > 0 && currentDonations === maxNumberOfDonators && (
-                <Text color="red.500" fontWeight="bold">
-                  <FormattedMessage
-                    id="donations.text.sold-out"
-                    defaultMessage="Sold out"
-                  />
-                </Text>
-              )}
-              
               {isDonor !== null && (
                 <Text color={isDonor ? "green.500" : "yellow.500"} fontSize="20px" fontWeight="bold">
                   {isDonor && (
@@ -209,34 +279,9 @@ function Donations() {
             </SimpleGrid>
           </Card>
         </chakra.div>
-
-        {isLowerThanLG && (
-          <Image src={character} margin="2rem auto" />
-        )}
       </chakra.main>
-      
-      <Modal
-        showCloseButton={status !== 'loading'}
-        isOpen={status !== 'idle'}
-        onClose={() => {
-          setHashTax(null)
-          setStatus('idle')
-        }}
-      > 
-        {status === 'loading' && (
-          <ModalStepsContent stepMessageID={stepMessageID} />
-        )}
-
-        {status === 'success' && hashTax && (
-          <ModalSuccessContent hashTax={hashTax} />
-        )}
-
-        {status === 'error' && (
-          <ModalErrorContent errorMessageID={errorMessageID} />
-        )}
-      </Modal>
     </Layout>
   );
 }
 
-export default Donations;
+export default Whitelist;

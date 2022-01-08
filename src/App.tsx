@@ -1,6 +1,6 @@
 // Pages
 import { useEffect } from "react";
-import Donations from "./pages/Donations/Donations";
+import Whitelist from "./pages/Whitelist/Whitelist";
 
 function App() {
   useEffect(() => {
@@ -10,7 +10,7 @@ function App() {
   }, [])
 
   return (
-    <Donations />
+    <Whitelist />
   );
 }
 
